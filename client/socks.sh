@@ -11,4 +11,4 @@ ssh -fNT -i~/.ssh/id_rsa \
     -oServerAliveInterval=30 \
     -oServerAliveCountMax=5 \
     -p${port} gof@${host} \
-  && echo && echo "SOCKS5 Server: ${socks}"
+  && echo && echo "socks5://${socks}"
