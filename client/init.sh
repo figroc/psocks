@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ ! -f ~/.ssh/id_rsa ]; then
+if [[ ! -f ~/.ssh/id_rsa ]]; then
   ssh-keygen -t rsa -b 2048
 fi
 echo
