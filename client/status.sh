@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ps aux | grep "ssh -fNT"
+ps aux | grep ssh
