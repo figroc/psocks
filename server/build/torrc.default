@@ -1,0 +1,11 @@
+RunAsDaemon 1
+Log notice file /var/log/tor.log
+
+DNSPort 53
+SocksPort 9050
+ControlPort 9051
+
+RelayBandwidthRate 300 KBytes
+RelayBandwidthBurst 500 KBytes
+AccountingMax 3 GBytes
+AccountingStart day 00:00
