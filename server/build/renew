@@ -1,0 +1,2 @@
+#!/bin/sh
+printf 'AUTHENTICATE "c0n"\r\nSIGNAL NEWNYM\r\n' | nc 127.0.0.1 9051

@@ -3,4 +3,4 @@
 host=${1}
 port=${2}
 
-ssh -p${port} gof@${host} newnym
+ssh -p${port} gof@${host} /renew
