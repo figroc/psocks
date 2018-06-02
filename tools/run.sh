@@ -5,10 +5,12 @@ if (( ${#} < 2 )); then
   exit 1
 fi
 
+cc='{au},{ca},{fr},{de},{gr},{hk},{it},{jp},{kr},{tw},{gb},{uk},{us}'
+
 name=${1}
 port=${2}
-tori=${3}
-toro=${4}
+tori=${3:-${cc}}
+toro=${4:-${cc}}
 
 pub=$(cd $(dirname ${0}) && pwd)/../users/${name}.pub
 chmod 644 ${pub}
