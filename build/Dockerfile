@@ -16,6 +16,9 @@ RUN adduser -D -g "" -h /home/gof -s /bin/sh gof && \
     echo "gof:" | chpasswd && \
     echo "AllowUsers gof" >> /etc/ssh/sshd_config
 
+# tools
+RUN apk add --no-cache curl
+
 EXPOSE 22
 
 COPY run.sh renew /

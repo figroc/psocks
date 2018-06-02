@@ -14,18 +14,28 @@ echoi="http://ipecho.net/plain"
 
 set -e
 
-ssh -fNT -i~/.ssh/id_rsa \
+while :; do
+  echo renew...
+  ssh -i~/.ssh/id_rsa \
+      -p${port} gof@${host} \
+      "/renew"
+  sleep 7
+  ipn=$(ssh -i~/.ssh/id_rsa \
+            -p${port} gof@${host} \
+            "curl -sS --socks5 ${socks} ${echoi}")
+  if ! grep ${ipn} ${waste} &>/dev/null; then
+    break
+  fi
+done
+
+echo
+echo ${ipn} | tee -a ${waste}
+echo
+
+ssh -i~/.ssh/id_rsa \
     -L9050:${socks} \
     -oExitOnForwardFailure=yes \
     -oServerAliveInterval=30 \
     -oServerAliveCountMax=5 \
     -p${port} gof@${host} \
-  && echo && echo "socks5://${socks}" && echo
-
-ipn=$(curl -sS --socks5 ${socks} ${echoi})
-if grep ${ipn} ${waste} &>/dev/null; then
-  unset ipn && echo scanning...
-  source $(dirname ${0})/renew.sh
-else
-  echo ${ipn}
-fi
+    "echo socks5://${socks} && sleep 365d"

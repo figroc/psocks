@@ -1,2 +1,2 @@
 #!/bin/sh
-printf 'AUTHENTICATE "c0n"\r\nSIGNAL NEWNYM\r\n' | nc 127.0.0.1 9051
+printf 'AUTHENTICATE "c0n"\r\nSIGNAL NEWNYM\r\nQUIT\r\n' | nc 127.0.0.1 9051
