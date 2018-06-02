@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if (( ${#} != 2 )); then
-  echo "${0} <host> <ip>" 1>&2
+  echo "${0} <host> <port>" 1>&2
   exit 1
 fi
 
