@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if (( ${#} != 1 )); then
+if (( ${#} < 1 )); then
   echo "${0} <host:port> [local-port]" 1>&2
   exit 1
 fi
